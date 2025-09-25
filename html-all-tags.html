@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>HTML All-Tags Demo — One File Playground</title>
+  <meta name="description" content="A single-file HTML playground demonstrating most HTML5 tags, attributes, accessibility practices and examples for learning and testing.">
+  <style>
+    /* Minimal styling so the demo looks presentable when opened directly */
+    :root{font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;line-height:1.5;color:#222}
+    body{max-width:1100px;margin:2rem auto;padding:1rem}
+    header, footer{background:#f5f5f5;padding:1rem;border-radius:8px}
+    nav ul{display:flex;gap:0.5rem;flex-wrap:wrap;list-style:none;padding:0;margin:0}
+    nav a{padding:.25rem .5rem;border-radius:6px;text-decoration:none}
+    main{margin-top:1rem}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem}
+    .card{border:1px dashed #ccc;padding:0.75rem;border-radius:8px}
+    pre{background:#111;color:#dcdcdc;padding:0.75rem;border-radius:6px;overflow:auto}
+    table{width:100%;border-collapse:collapse}
+    th,td{border:1px solid #ddd;padding:.4rem;text-align:left}
+  </style>
+</head>
+<body>
+  <header>
+    <h1>HTML All-Tags Demo — Single File</h1>
+    <p><small>Open this file (index.html) in your browser to preview. The file intentionally contains many HTML elements for learning purposes.</small></p>
+    <nav aria-label="Main navigation">
+      <ul>
+        <li><a href="#semantics">Semantics</a></li>
+        <li><a href="#multimedia">Multimedia</a></li>
+        <li><a href="#forms">Forms</a></li>
+        <li><a href="#misc">Misc</a></li>
+        <li><a href="#accessibility">Accessibility</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Semantic elements -->
+    <section id="semantics" class="card">
+      <h2>Semantic Elements</h2>
+      <article>
+        <h3>Article Example</h3>
+        <p>This is an <strong>article</strong> with headings (h1-h6), <em>emphasis</em>, <mark>highlight</mark>, and <small>small print</small>.</p>
+        <h4>Headings</h4>
+        <h1>Heading level 1</h1>
+        <h2>Heading level 2</h2>
+        <h3>Heading level 3</h3>
+        <h4>Heading level 4</h4>
+        <h5>Heading level 5</h5>
+        <h6>Heading level 6</h6>
+
+        <h4>Text-level elements</h4>
+        <p>Inline tags: <a href="#">link (a)</a>, <abbr title="HyperText Markup Language">HTML</abbr>, <time datetime="2025-09-25">2025-09-25</time>, <var>x</var>, <code>console.log()</code>, <samp>sample output</samp>, <kbd>Ctrl</kbd>+<kbd>C</kbd>, <sup>superscript</sup> and <sub>subscript</sub>.</p>
+
+        <h4>Lists</h4>
+        <ul>
+          <li>Unordered list <em>(ul > li)</em></li>
+          <li>Nested ordered list:
+            <ol start="3">
+              <li>Three</li>
+              <li>Four</li>
+            </ol>
+          </li>
+        </ul>
+
+        <h4>Definition list</h4>
+        <dl>
+          <dt>HTML</dt>
+          <dd>HyperText Markup Language — the language of the web.</dd>
+        </dl>
+
+      </article>
+
+      <aside>
+        <h4>Aside</h4>
+        <p>Use <code>&lt;aside&gt;</code> for tangential content.</p>
+      </aside>
+    </section>
+
+    <!-- Multimedia -->
+    <section id="multimedia" class="card">
+      <h2>Images, Figures & Media</h2>
+      <figure>
+        <img src="https://via.placeholder.com/400x200.png?text=Placeholder+Image" alt="Placeholder example" width="400" height="200">
+        <figcaption>Figure: placeholder image with <code>&lt;figure&gt;</code> and <code>&lt;figcaption&gt;</code>.</figcaption>
+      </figure>
+
+      <h3>Picture (responsive images)</h3>
+      <picture>
+        <source media="(min-width:600px)" srcset="https://via.placeholder.com/600x200.png?text=Large">
+        <img src="https://via.placeholder.com/300x150.png?text=Small" alt="Responsive example">
+      </picture>
+
+      <h3>Audio & Video</h3>
+      <audio controls>
+        <source src="" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+
+      <video controls width="420">
+        <source src="" type="video/mp4">
+        Your browser does not support the video element.
+      </video>
+
+      <h3>Canvas & SVG</h3>
+      <canvas id="myCanvas" width="300" height="100" style="border:1px solid #ccc">Your browser does not support canvas.</canvas>
+      <!-- Inline SVG -->
+      <svg width="120" height="60" role="img" aria-label="simple svg">
+        <rect width="120" height="60" rx="8" fill="#eef" stroke="#66a"/>
+        <text x="60" y="35" font-size="14" text-anchor="middle" fill="#336">SVG Text</text>
+      </svg>
+    </section>
+
+    <!-- Tables -->
+    <section id="tables" class="card">
+      <h2>Tables & Data</h2>
+      <table>
+        <caption>Sample table</caption>
+        <thead>
+          <tr><th>Item</th><th>Qty</th><th>Price</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Apple</td><td>3</td><td>$1.20</td></tr>
+          <tr><td>Banana</td><td>5</td><td>$0.50</td></tr>
+        </tbody>
+        <tfoot>
+          <tr><td colspan="2">Total</td><td>$3.70</td></tr>
+        </tfoot>
+      </table>
+    </section>
+
+    <!-- Forms -->
+    <section id="forms" class="card">
+      <h2>Forms (many input types)</h2>
+      <form action="#" method="get" autocomplete="on">
+        <fieldset>
+          <legend>Personal</legend>
+          <label for="name">Name: <input type="text" id="name" name="name" placeholder="Your name"></label><br>
+          <label for="email">Email: <input type="email" id="email" name="email" required></label><br>
+          <label for="age">Age: <input type="number" id="age" name="age" min="1" max="120"></label><br>
+          <label for="bday">Birthday: <input type="date" id="bday" name="bday"></label><br>
+          <label>Gender:
+            <input type="radio" id="g1" name="gender" value="f"><label for="g1">Female</label>
+            <input type="radio" id="g2" name="gender" value="m"><label for="g2">Male</label>
+          </label>
+          <label>Interests:
+            <input type="checkbox" id="i1" name="int" value="design"> <label for="i1">Design</label>
+            <input type="checkbox" id="i2" name="int" value="code"> <label for="i2">Coding</label>
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>Controls</legend>
+          <label for="color">Favorite color: <input type="color" id="color" name="color" value="#ff0000"></label><br>
+          <label for="range">Satisfaction: <input type="range" id="range" name="range" min="0" max="10" value="6"></label><br>
+          <label for="file">Upload: <input type="file" id="file" name="file"></label><br>
+          <label for="select">Choose: <select id="select" name="select"><option>Option 1</option><option>Option 2</option></select></label>
+          <label for="search">Search: <input type="search" id="search" name="search"></label>
+          <label for="tel">Phone: <input type="tel" id="tel" name="tel"></label>
+          <label for="url">Website: <input type="url" id="url" name="url"></label>
+          <label for="time">Time: <input type="time" id="time" name="time"></label>
+          <label for="month">Month: <input type="month" id="month" name="month"></label>
+          <label for="week">Week: <input type="week" id="week" name="week"></label>
+          <label for="datetime">Datetime-local: <input type="datetime-local" id="datetime" name="datetime"></label>
+          <label for="textarea">Message:<textarea id="textarea" name="message" rows="3"></textarea></label>
+          <label for="datalist">Choose from list: <input list="browsers" id="datalist" name="browsers"><datalist id="browsers"><option value="Chrome"><option value="Firefox"><option value="Safari"></datalist></label>
+        </fieldset>
+
+        <details>
+          <summary>More options</summary>
+          <p>Hidden, expandable content using <code>&lt;details&gt;</code> and <code>&lt;summary&gt;</code>.</p>
+        </details>
+
+        <button type="submit">Submit</button>
+        <button type="reset">Reset</button>
+      </form>
+    </section>
+
+    <!-- Misc HTML5 elements -->
+    <section id="misc" class="card">
+      <h2>Miscellaneous Elements</h2>
+      <p>Progress: <progress value="70" max="100"></progress></p>
+      <p>Meter (disk usage): <meter value="0.6">60%</meter></p>
+      <p>Blockquote with cite:</p>
+      <blockquote cite="https://www.example.com"><p>Example quoted text.</p></blockquote>
+      <p>Inline quote: <q>short quote</q></p>
+      <p>Embed content via iframe:</p>
+      <iframe src="https://example.com" title="External example site" style="width:100%;height:120px;border:1px solid #ddd"></iframe>
+    </section>
+
+    <!-- Accessibility sample -->
+    <section id="accessibility" class="card">
+      <h2>Accessibility & ARIA</h2>
+      <nav aria-label="Footer links">
+        <ul>
+          <li><a href="#">Contact</a></li>
+          <li><a href="#">Privacy</a></li>
+        </ul>
+      </nav>
+      <p><span role="note">Note:</span> Use meaningful alt text, labels, and landmarks.</p>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2025 — HTML All-Tags Demo. <a href="#">Back to top</a></p>
+  </footer>
+
+  <script>
+    // Canvas demo drawing
+    const c = document.getElementById('myCanvas');
+    if(c && c.getContext){
+      const ctx = c.getContext('2d');
+      ctx.fillStyle = '#88c';
+      ctx.fillRect(10,10,80,60);
+      ctx.fillStyle = '#fff';
+      ctx.font = '14px sans-serif';
+      ctx.fillText('Canvas',22,42);
+    }
+
+    // Small interactive example: announce form submit
+    document.querySelector('form')?.addEventListener('submit', (e)=>{
+      e.preventDefault();
+      alert('Form submitted (demo prevents real submission)');
+    });
+  </script>
+</body>
+</html>
